@@ -43,24 +43,6 @@ sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
 scoop bucket known
 
 scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
-# scoop bucket add extras
-# scoop bucket add Java
-# scoop bucket add jetbrains
-# scoop bucket add versions
-# scoop bucket add Ash258 'https://github.com/Ash258/Scoop-Ash258.git'
-# scoop bucket add dorado https://github.com/h404bi/dorado 
-# scoop bucket add dodorz https://github.com/dodorz/scoop-bucket
-# scoop bucket add scoopet https://github.com/integzz/scoopet # 
-# scoop bucket rm extras 
-# scoop bucket rm Java 
-# scoop bucket rm jetbrains
-# scoop bucket rm versions
-# scoop bucket rm Ash258
-# scoop bucket rm dorado 
-# scoop bucket rm dodorz 
-# scoop bucket rm scoopet
-# scoop bucket add scoop-viewer-bucket https://github.com/prezesp/scoop-viewer-bucket.git
-# scoop install scoop-viewer
 
 sudo scoop install openssl -g
 scoop install scoop-completion
@@ -71,6 +53,7 @@ Write-Output 'Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.P
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
+sudo scoop install listary-beta
 
 scoop install typora sumatraPDF pandoc
 scoop install phraseexpress
@@ -80,16 +63,17 @@ scoop hold wps-cn
 
 # 浏览器
 # scoop install firefox-beta
-scoop install thunderbird-portable firefox-developer microsoftedge-beta googlechrome-canary speedyfox
+scoop install thunderbird-portable firefox-developer MicrosoftEdge-Portable googlechrome-canary speedyfox
 
-scoop hold firefox-developer microsoftedge-beta googlechrome-canary
+scoop hold firefox-developer MicrosoftEdge-Portable googlechrome-canary
 scoop uninstall firefox-beta
 
 
 
 # 娱乐
 scoop install aimp eartrumpet
-scoop install spotify neteasemusic listen1desktop
+scoop install neteasemusic listen1desktop
+scoop install spotify 
 # scoop install foobar2000-portable
 # scoop install obs-studio
 scoop hold aimp
@@ -121,9 +105,12 @@ scoop install wechatwork
 # 下载工具
 # scoop install transmission
 scoop install aria-ng-gui
+scoop install qbittorrent-portable
+scoop install xdm
 # scoop install you-get
-scoop install freedownloadmanager
-scoop hold freedownloadmanager
+# scoop install freedownloadmanager
+# scoop hold freedownloadmanager
+
 
 
 # 编程
@@ -176,10 +163,10 @@ scoop hold PyCharm-Professional
 # Java
 scoop install openjdk
 scoop hold openjdk
-scoop install eclipse-java
-scoop hold eclipse-java
 scoop install maven
 scoop hold maven
+scoop install eclipse-java
+scoop hold eclipse-java
 
 # Other Languages
 scoop install php
@@ -214,18 +201,29 @@ scoop uninstall wget autojump
 
 
 # 工具
-scoop install qbittorrent-portable
 scoop install winscp nextcloud synctrayzor
 scoop install anydesk 
 scoop install everything
 scoop install teamviewers
 scoop install WinDirStat
 scoop install spacesniffer
+scoop install DismPlusPlus-Portable
 # scoop uninstall spacesniffer
 scoop install rufus
 
 scoop uninstall recuva
 scoop uninstall anydesk
+
+
+
+scoop install zotero
+scoop install qiqqa
+
+
+
+
+
+
 
 # 娱乐
 # scoop install steam
