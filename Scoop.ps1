@@ -7,8 +7,7 @@ scoop config rm proxy
 
 # git Necceassary
 scoop install git
-# scoop install github
-scoop install sudo
+scoop install psutils gow
 
 scoop install aria2 
 scoop uninstall aria2
@@ -28,15 +27,12 @@ scoop unhold googlechrome-canary;scoop update googlechrome-canary;scoop hold goo
 scoop unhold microsoftedge-beta;scoop update microsoftedge-beta;scoop hold microsoftedge-beta
 
 
-sudo choco upgrade powershell-preview
-sudo choco upgrade tim
-
 # 检查潜在的问题..执行下看看使用scoop会有什么问题
 # scoop checkup提示装的软件
-# scoop install wixtoolset
-sudo scoop install innounp lessmsi dark -g
-scoop uninstall lessmsi
-scoop uninstall dark
+scoop install wixtoolset
+# sudo scoop install innounp lessmsi dark -g
+# scoop uninstall lessmsi
+# scoop uninstall dark
 
 
 sudo Add-MpPreference -ExclusionPath 'C:\Users\95695\scoop'
@@ -74,10 +70,11 @@ Write-Output 'Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.P
 
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
-sudo scoop install quicker -g
+scoop install quicker
 
 scoop install typora sumatraPDF pandoc
-scoop install screenoff everything 
+scoop install phraseexpress
+scoop install screenoff 
 scoop install wps-cn
 scoop hold wps-cn
 
@@ -104,7 +101,7 @@ scoop uninstall foobar2000-portable
 # 视频
 scoop install vlc potplayer 
 scoop install madvr 
-sudo C:\Users\95695\scoop\apps\madvr\current\install.bat
+sudo ~\scoop\apps\madvr\current\install.bat
 sudo scoop install lavfilters -g
 sudo C:\ProgramData\scoop\apps\lavfilters\current\install_audio.bat
 sudo C:\ProgramData\scoop\apps\lavfilters\current\install_splitter.bat
@@ -131,13 +128,19 @@ scoop hold freedownloadmanager
 
 # 编程
 scoop install zeal
-scoop install putty
 scoop install windows-terminal
-scoop install vim vscode notepadplusplus
-sudo C:\Users\95695\scoop\apps\vscode\current\vscode-install-context.reg
+scoop install vim vscode-portable notepadplusplus
+# Make vscode portable
+mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
+mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
+sudo ~\scoop\apps\vscode\current\vscode-install-context.reg
+scoop install github
+sudo scoop install JetBrainsMono-NF
+scoop install cascadia-code-pl
+
 scoop uninstall vim
 
-sudo scoop install powershell-preview -g
+scoop install powershell-preview
 # 1. 安装 PSReadline 包，该插件可以让命令行很好用，类似 zsh
 Install-Module -Name PSReadLine -AllowPrerelease -Force
 # 2. 安装 posh-git 包，让你的 git 更好用
@@ -183,11 +186,11 @@ scoop install php
 scoop install perl
 scoop install julia
 # scoop install nodejs
-scoop install no
-		
+scoop install nodejs-lts
 scoop install composer
 scoop hold nodejs-lts nodejs
 scoop hold php perl composer 
+
 scoop unhold nodejs-lts nodejs
 scoop uninstall php perl composer nodejs 
 scoop uninstall julia
@@ -214,9 +217,10 @@ scoop uninstall wget autojump
 scoop install qbittorrent-portable
 scoop install winscp nextcloud synctrayzor
 scoop install anydesk 
+scoop install everything
 scoop install teamviewers
 scoop install WinDirStat
-# scoop install spacesniffer
+scoop install spacesniffer
 # scoop uninstall spacesniffer
 scoop install rufus
 
