@@ -23,8 +23,10 @@ sudo scoop update * -g ; scoop update * ; sudo scoop cleanup * -g ; scoop cleanu
 scoop cache rm *
 # 重置应用以解决冲突,会重置环境变量,快捷方式等..
 sudo scoop reset *
-scoop unhold googlechrome-canary;scoop update googlechrome-canary;scoop hold googlechrome-canary;
-scoop unhold microsoftedge-beta;scoop update microsoftedge-beta;scoop hold microsoftedge-beta
+$edge = "microsoft-edge-dev";
+$google = "googlechrome-dev";
+scoop unhold $edge;scoop update $edge;scoop hold $edge;
+scoop unhold $google;scoop update $google;scoop hold $google;
 
 
 # 检查潜在的问题..执行下看看使用scoop会有什么问题
