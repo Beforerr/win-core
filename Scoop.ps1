@@ -63,9 +63,8 @@ scoop hold wps-cn
 
 # 浏览器
 # scoop install firefox-beta
-scoop install thunderbird-portable firefox-developer MicrosoftEdge-Portable googlechrome-canary speedyfox
-
-scoop hold firefox-developer MicrosoftEdge-Portable googlechrome-canary
+scoop install thunderbird-portable firefox-developer microsoft-edge-dev googlechrome-dev speedyfox
+scoop hold firefox-developer microsoft-edge-dev googlechrome-dev
 scoop uninstall firefox-beta
 
 
