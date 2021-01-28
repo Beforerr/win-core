@@ -121,7 +121,7 @@ scoop install vim vscode-portable notepadplusplus
 # Make vscode portable
 mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
-sudo ~\scoop\apps\vscode\current\vscode-install-context.reg
+sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
 scoop install github
 sudo scoop install JetBrainsMono-NF
 scoop install cascadia-code-pl
@@ -153,10 +153,12 @@ sudo scoop uninstall powershell-preview -g
 # $newpath = $path + ';C:\ProgramData\Anaconda3\;C:\ProgramData\Anaconda3\Scripts\;C:\ProgramData\Anaconda3\Library'
 # [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
 sudo scoop install miniconda3 -g
-Set-Variable CONDA_ENVS_PATH=~/.conda/envs
-$path = [Environment]::GetEnvironmentVariable('Path', 'User')
-$newpath = $path + ';C:\tools\miniconda3\;C:\tools\miniconda3\Scripts\;C:\tools\miniconda3\Library\bin\'
-[Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
+conda init powershells
+
+# Set-Variable CONDA_ENVS_PATH=~/.conda/envs
+# $path = [Environment]::GetEnvironmentVariable('Path', 'User')
+# $newpath = $path + ';C:\tools\miniconda3\;C:\tools\miniconda3\Scripts\;C:\tools\miniconda3\Library\bin\'
+# [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
 
 scoop install PyCharm-Professional
 scoop hold PyCharm-Professional
