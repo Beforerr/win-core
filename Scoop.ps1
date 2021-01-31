@@ -48,16 +48,18 @@ scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
 
 sudo scoop install openssl -g
 scoop install scoop-completion
+scoop install scoop-search
 # enable completion in current shell, use absolute path because PowerShell Core not respect $env:choPSModulePath
 New-Item -path $profile -itemtype file -force
 Write-Output 'Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion"' >> $profile
+Write-Output 'Invoke-Expression (&scoop-search --hook)' >> $profile
 
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
 sudo scoop install listary-beta
 
-scoop install typora sumatraPDF pandoc
+scoop install typora sumatrapdf-dev pandoc
 scoop install phraseexpress
 scoop install screenoff 
 scoop install wps-cn
@@ -84,7 +86,7 @@ scoop uninstall listen1desktop
 scoop uninstall foobar2000-portable
 
 # 视频
-scoop install vlc potplayer 
+scoop install vlc-portapps potplayer 
 scoop install madvr 
 sudo ~\scoop\apps\madvr\current\install.bat
 sudo scoop install lavfilters -g
@@ -98,6 +100,7 @@ sudo C:\ProgramData\scoop\apps\lavfilters\current\install_video.bat
 scoop install TIM
 scoop install wechat
 scoop install wechatwork
+scoop install qtox-portable
 # scoop bucket add sushi https://github.com/kidonng/sushi
 # scoop install tencent-meeting
 # scoop uninstall tencent-meeting
@@ -122,7 +125,8 @@ scoop install vim vscode-portable notepadplusplus
 mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
 sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
-scoop install github
+
+scoop install gh github
 sudo scoop install JetBrainsMono-NF
 scoop install cascadia-code-pl
 
@@ -160,8 +164,8 @@ conda init powershells
 # $newpath = $path + ';C:\tools\miniconda3\;C:\tools\miniconda3\Scripts\;C:\tools\miniconda3\Library\bin\'
 # [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
 
-scoop install PyCharm-Professional
-scoop hold PyCharm-Professional
+scoop install PyCharm-Professional-EAP-portable
+scoop hold PyCharm-Professional-EAP-portable
 
 # Java
 scoop install openjdk
@@ -175,6 +179,7 @@ scoop hold eclipse-java
 scoop install php
 scoop install perl
 scoop install julia
+scoop install go
 # scoop install nodejs
 scoop install nodejs-lts
 scoop install composer
@@ -213,6 +218,8 @@ scoop install spacesniffer
 scoop install DismPlusPlus-Portable
 # scoop uninstall spacesniffer
 scoop install rufus
+scoop install speedtest-cli
+scoop install Microsoft.NETCoreRuntime-Install powertoys -y
 
 scoop uninstall recuva
 scoop uninstall anydesk

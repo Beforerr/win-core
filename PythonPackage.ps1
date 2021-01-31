@@ -29,6 +29,17 @@ pip uninstall tensorflow
 pip install sympy
 
 
+# Space Science
+pip install --upgrade spacepy
+conda install astropy -y
+
+## install sunpy
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+conda install sunpy
+
+
+
 conda clean -a -y
 
 
