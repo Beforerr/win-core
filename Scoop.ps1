@@ -1,19 +1,17 @@
-# Make sure PowerShell 5 (or later, include PowerShell Core) and .NET Framework 4.5 (or later) are installed. Then run:
+﻿# Make sure PowerShell 5 (or later, include PowerShell Core) and .NET Framework 4.5 (or later) are installed. Then run:
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 
 scoop config proxy 127.0.0.1:7890
 scoop config proxy 127.0.0.1:10809
 scoop config rm proxy
 
-# git Necceassary
-scoop install git
-scoop install psutils gow
 
-scoop install aria2 
-scoop uninstall aria2
-# scoop config aria2-enabled false #如果使用代理，需要通过如下命令关闭 aria2
-scoop install aria-ng-gui
-scoop uninstall aria-ng-gui
+sudo Add-MpPreference -ExclusionPath ~\scoop
+sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
+
+# Necceassary
+scoop install git
+scoop install psutils gow wixtoolset
 
 
 # 下面是日常更新软件命令
@@ -29,41 +27,28 @@ scoop unhold $edge;scoop update $edge;scoop hold $edge;
 scoop unhold $google;scoop update $google;scoop hold $google;
 
 
-# 检查潜在的问题..执行下看看使用scoop会有什么问题
-# scoop checkup提示装的软件
-scoop install wixtoolset
-# sudo scoop install innounp lessmsi dark -g
-# scoop uninstall lessmsi
-# scoop uninstall dark
-
-
-sudo Add-MpPreference -ExclusionPath 'C:\Users\95695\scoop'
-sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
-
 
 
 scoop bucket known
 
 scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
+scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 
-sudo scoop install openssl -g
 scoop install scoop-completion
-scoop install scoop-search
 # enable completion in current shell, use absolute path because PowerShell Core not respect $env:choPSModulePath
 New-Item -path $profile -itemtype file -force
 Write-Output 'Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion"' >> $profile
-Write-Output 'Invoke-Expression (&scoop-search --hook)' >> $profile
 
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
 sudo scoop install listary-beta
+scoop install peazip
 
-scoop install typora sumatrapdf-dev pandoc
+scoop install typora sumatrapdf-dev 
 scoop install phraseexpress
-scoop install screenoff 
-scoop install wps-cn
-scoop hold wps-cn
+scoop install screenoff
+
 
 # 浏览器
 # scoop install firefox-beta
@@ -72,18 +57,17 @@ scoop hold firefox-developer microsoft-edge-dev googlechrome-dev
 scoop uninstall firefox-beta
 
 
-
 # 娱乐
 scoop install aimp eartrumpet
 scoop install neteasemusic listen1desktop
-scoop install spotify 
+# scoop install spotify 
 # scoop install foobar2000-portable
 # scoop install obs-studio
 scoop hold aimp
 # scoop hold obs-studio
-scoop uninstall obs-studio
-scoop uninstall listen1desktop
-scoop uninstall foobar2000-portable
+# scoop uninstall obs-studio
+# scoop uninstall listen1desktop
+# scoop uninstall foobar2000-portable
 
 # 视频
 scoop install vlc-portapps potplayer 
@@ -99,8 +83,8 @@ sudo C:\ProgramData\scoop\apps\lavfilters\current\install_video.bat
 # 社交
 scoop install TIM
 scoop install wechat
-scoop install wechatwork
-scoop install qtox-portable
+# scoop install wechatwork
+# scoop install qtox-portable
 # scoop bucket add sushi https://github.com/kidonng/sushi
 # scoop install tencent-meeting
 # scoop uninstall tencent-meeting
@@ -108,9 +92,9 @@ scoop install qtox-portable
 
 # 下载工具
 # scoop install transmission
-scoop install aria-ng-gui
+# scoop install aria-ng-gui
 scoop install qbittorrent-portable
-scoop install xdm
+# scoop install xdm
 # scoop install you-get
 # scoop install freedownloadmanager
 # scoop hold freedownloadmanager
@@ -140,7 +124,7 @@ Install-Module posh-git -Scope CurrentUser -AllowClobber
 # 3. 安装 oh-my-posh 包，让你的命令行更酷炫、优雅
 Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
 
-sudo scoop uninstall powershell-preview -g
+sudo scoop uninstall powershell-preview
 # sudo scoop install vcredist2019 -g
 # sudo scoop uninstall vcredist2019 -g
 # sudo scoop install vcredist -g
@@ -209,7 +193,8 @@ scoop uninstall wget autojump
 
 
 # 工具
-scoop install winscp nextcloud synctrayzor
+scoop install winscp 
+scoop install nextcloud synctrayzor
 scoop install anydesk 
 scoop install everything
 scoop install teamviewers
