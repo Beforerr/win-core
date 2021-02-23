@@ -2,16 +2,17 @@
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 
 scoop config proxy 127.0.0.1:7890
+scoop config proxy 192.168.124.7:7890
 scoop config proxy 127.0.0.1:10809
 scoop config rm proxy
 
 
-sudo Add-MpPreference -ExclusionPath ~\scoop
-sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
-
 # Necceassary
 scoop install git
 scoop install psutils gow wixtoolset
+
+sudo Add-MpPreference -ExclusionPath ~\scoop
+sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
 
 
 # 下面是日常更新软件命令
@@ -47,7 +48,23 @@ scoop install peazip
 
 scoop install typora sumatrapdf-dev 
 scoop install phraseexpress
-scoop install screenoff
+scoop install screenoff flux
+
+
+
+scoop install powershell-preview
+# 1. 安装 PSReadline 包，该插件可以让命令行很好用，类似 zsh
+Install-Module -Name PSReadLine -AllowPrerelease -Force
+# 2. 安装 posh-git 包，让你的 git 更好用
+Install-Module posh-git -Scope CurrentUser -AllowClobber
+# 3. 安装 oh-my-posh 包，让你的命令行更酷炫、优雅
+Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
+
+sudo scoop uninstall powershell-preview
+# sudo scoop install vcredist2019 -g
+# sudo scoop uninstall vcredist2019 -g
+# sudo scoop install vcredist -g
+# sudo scoop uninstall vcredist vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 -g
 
 
 # 浏览器
@@ -116,21 +133,6 @@ scoop install cascadia-code-pl
 
 scoop uninstall vim
 
-scoop install powershell-preview
-# 1. 安装 PSReadline 包，该插件可以让命令行很好用，类似 zsh
-Install-Module -Name PSReadLine -AllowPrerelease -Force
-# 2. 安装 posh-git 包，让你的 git 更好用
-Install-Module posh-git -Scope CurrentUser -AllowClobber
-# 3. 安装 oh-my-posh 包，让你的命令行更酷炫、优雅
-Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
-
-sudo scoop uninstall powershell-preview
-# sudo scoop install vcredist2019 -g
-# sudo scoop uninstall vcredist2019 -g
-# sudo scoop install vcredist -g
-# sudo scoop uninstall vcredist vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 -g
-# scoop install alacritty
-# scoop uninstall alacritty
 
 # Python
 # sudo scoop install python -g
