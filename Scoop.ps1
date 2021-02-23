@@ -29,9 +29,7 @@ scoop unhold $google;scoop update $google;scoop hold $google;
 
 
 
-
 scoop bucket known
-
 scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
 scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 
@@ -49,7 +47,6 @@ scoop install peazip
 scoop install typora sumatrapdf-dev 
 scoop install phraseexpress
 scoop install screenoff flux
-
 
 
 scoop install powershell-preview
@@ -180,11 +177,12 @@ scoop uninstall julia
 # linux
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 sudo scoop install ArchWSL -g
-sudo scoop install wsl-terminal -g
 scoop install docker
 
 sudo scoop uninstall ArchWSL -g
-sudo scoop uninstall wsl-terminal -g
+
+scoop install cwrsync
+scoop install cgywin
 
 
 
@@ -196,12 +194,13 @@ scoop uninstall wget autojump
 
 # 工具
 scoop install winscp 
+scoop install GeekUninstaller-Portable
+scoop install spacesniffer
 scoop install nextcloud synctrayzor
 scoop install anydesk 
 scoop install everything
 scoop install teamviewers
 scoop install WinDirStat
-scoop install spacesniffer
 scoop install DismPlusPlus-Portable
 # scoop uninstall spacesniffer
 scoop install rufus
