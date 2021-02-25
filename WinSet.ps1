@@ -1,22 +1,18 @@
 
 sudo Remove-WindowsCapability -Online -Name  "App.Support.QuickAssist~~~~0.0.1.0"
+sudo Remove-WindowsCapability -Online -Name  "App.StepsRecorder~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Microsoft.Windows.MSPaint~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Microsoft.Windows.WordPad~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Browser.InternetExplorer~~~~0.0.11.0"
 sudo Remove-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Print.Fax.Scan~~~~0.0.1.0"
-sudo Add-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 
+sudo Add-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 # SSH 设置
-sudo Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
-sudo Add-WindowsCapability -Online -Name OpenSSH.Server
+sudo Add-WindowsCapability -Online -Name "OpenSSH.Server~~~~0.0.1.0"
 sudo Start-Service sshd
 sudo Set-Service -Name sshd -StartupType 'Automatic'
 Get-NetFirewallRule -Name *ssh*
-
-
-sudo Add-WindowsCapability -Online -Name Media.MediaFeaturePack
-sudo Add-WindowsCapability -Online -Name Media.MediaFeaturePack
 
 
 # 关闭休眠

@@ -8,7 +8,7 @@ scoop config rm proxy
 
 
 # Necceassary
-scoop install git openssl
+scoop install git openssl hub gh
 scoop install psutils gow wixtoolset
 
 sudo Add-MpPreference -ExclusionPath ~\scoop
@@ -126,13 +126,12 @@ scoop install vim vscode-portable notepadplusplus
 mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
 sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
-
-scoop install gh github
 sudo scoop install JetBrainsMono-NF
 scoop install cascadia-code-pl
 
 scoop uninstall vim
 
+# Python
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
 # $newpath = $path + ';C:\ProgramData\Anaconda3\;C:\ProgramData\Anaconda3\Scripts\;C:\ProgramData\Anaconda3\Library'
 # [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
@@ -156,13 +155,7 @@ pip config set global.proxy localhost:10809
 pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 pip config set install.trusted-host mirrors.aliyun.com
 conda install -n root -c pscondaenvs pscondaenvs -y
-
 conda init powershell
-
-# Set-Variable CONDA_ENVS_PATH=~/.conda/envs
-# $path = [Environment]::GetEnvironmentVariable('Path', 'User')
-# $newpath = $path + ';C:\tools\miniconda3\;C:\tools\miniconda3\Scripts\;C:\tools\miniconda3\Library\bin\'
-# [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
 
 scoop install PyCharm-Professional-EAP-portable
 scoop hold PyCharm-Professional-EAP-portable
@@ -176,10 +169,10 @@ scoop install eclipse-java
 scoop hold eclipse-java
 
 # Other Languages
+scoop install ruby go nodejs
 scoop install php
 scoop install perl
 scoop install julia
-scoop install go
 # scoop install nodejs
 scoop install nodejs-lts
 scoop install composer
