@@ -8,7 +8,7 @@ scoop config rm proxy
 
 
 # Necceassary
-scoop install git
+scoop install git openssl
 scoop install psutils gow wixtoolset
 
 sudo Add-MpPreference -ExclusionPath ~\scoop
@@ -30,6 +30,7 @@ scoop unhold $google;scoop update $google;scoop hold $google;
 
 
 scoop bucket known
+scoop bucket add extras
 scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
 scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 
@@ -44,7 +45,8 @@ scoop install quicker
 sudo scoop install listary-beta
 scoop install peazip
 
-scoop install typora sumatrapdf-dev 
+scoop install typora sumatrapdf-dev foxit-reader
+scoop install calibre
 scoop install phraseexpress
 scoop install screenoff flux
 
@@ -84,6 +86,7 @@ scoop hold aimp
 # scoop uninstall foobar2000-portable
 
 # 视频
+scoop install ProjectEye
 scoop install vlc-portapps potplayer 
 scoop install madvr 
 sudo ~\scoop\apps\madvr\current\install.bat
@@ -130,17 +133,31 @@ scoop install cascadia-code-pl
 
 scoop uninstall vim
 
-
-# Python
-# sudo scoop install python -g
-# sudo C:\ProgramData\scoop\apps\python\current\install-pep-514.reg
-# sudo scoop uninstall python -g
-# sudo scoop install anaconda3 -g
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
 # $newpath = $path + ';C:\ProgramData\Anaconda3\;C:\ProgramData\Anaconda3\Scripts\;C:\ProgramData\Anaconda3\Library'
 # [Environment]::SetEnvironmentVariable("Path", $newpath, 'User')
-sudo scoop install miniconda3 -g
-conda init powershells
+sudo scoop install miniconda3
+ 'channels:
+>>   - defaults
+>> show_channel_urls: true
+>> default_channels:
+>>   - https://mirrors.bfsu.edu.cn/anaconda/pkgs/main
+>>   - https://mirrors.bfsu.edu.cn/anaconda/pkgs/r
+>>   - https://mirrors.bfsu.edu.cn/anaconda/pkgs/msys2
+>> custom_channels:
+>>   conda-forge: https://mirrors.bfsu.edu.cn/anaconda/cloud
+>>   msys2: https://mirrors.bfsu.edu.cn/anaconda/cloud
+>>   bioconda: https://mirrors.bfsu.edu.cn/anaconda/cloud
+>>   menpo: https://mirrors.bfsu.edu.cn/anaconda/cloud
+>>   pytorch: https://mirrors.bfsu.edu.cn/anaconda/cloud
+>>   simpleitk: https://mirrors.bfsu.edu.cn/anaconda/cloud' >> .condarc
+conda clean -i
+pip config set global.proxy localhost:10809
+pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/
+pip config set install.trusted-host mirrors.aliyun.com
+conda install -n root -c pscondaenvs pscondaenvs -y
+
+conda init powershell
 
 # Set-Variable CONDA_ENVS_PATH=~/.conda/envs
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
@@ -193,9 +210,11 @@ scoop uninstall wget autojump
 
 
 # 工具
+scoop install dodorz-Eudic -s
 scoop install winscp 
 scoop install GeekUninstaller-Portable
 scoop install spacesniffer
+scoop install dodorz-BaiduNetdisk
 scoop install nextcloud synctrayzor
 scoop install anydesk 
 scoop install everything
@@ -225,6 +244,7 @@ scoop install qiqqa
 # scoop install steam
 # scoop uninstall steam
 
+scoop install aria2
 # aria2 在 Scoop 中默认开启
 scoop config aria2-enabled true
 scoop config aria2-enabled false
