@@ -35,9 +35,6 @@ scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
 scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 
 scoop install scoop-completion
-# enable completion in current shell, use absolute path because PowerShell Core not respect $env:choPSModulePath
-New-Item -path $profile -itemtype file -force
-Write-Output 'Import-Module "$($(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName)\modules\scoop-completion"' >> $profile
 
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
@@ -58,6 +55,7 @@ Install-Module -Name PSReadLine -AllowPrerelease -Force
 Install-Module posh-git -Scope CurrentUser -AllowClobber
 # 3. 安装 oh-my-posh 包，让你的命令行更酷炫、优雅
 Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
+Install-Module -Name Terminal-Icons -Repository PSGallery -Confirm
 
 sudo scoop uninstall powershell-preview
 # sudo scoop install vcredist2019 -g
@@ -118,18 +116,22 @@ scoop install qbittorrent-portable
 
 
 
-# 编程
+# 编程环境
 scoop install zeal
-scoop install windows-terminal
+scoop install WindowsTerminal-preview
 scoop install vim vscode-portable notepadplusplus
 # Make vscode portable
 mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
 sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
-sudo scoop install JetBrainsMono-NF
+scoop install JetBrainsMono-NF
 scoop install cascadia-code-pl
 
 scoop uninstall vim
+
+
+# Commandline 
+scoop install bat less --skip
 
 # Python
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
@@ -186,19 +188,12 @@ scoop uninstall julia
 
 # linux
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+scoop install cgywin
 sudo scoop install ArchWSL -g
+scoop install wsl-ubuntu2004
 scoop install docker
 
 sudo scoop uninstall ArchWSL -g
-
-scoop install cwrsync
-scoop install cgywin
-
-
-
-# 生产力
-scoop install wget autojump
-scoop uninstall wget autojump
 
 
 

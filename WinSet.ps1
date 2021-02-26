@@ -1,4 +1,3 @@
-
 sudo Remove-WindowsCapability -Online -Name  "App.Support.QuickAssist~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name  "App.StepsRecorder~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Microsoft.Windows.MSPaint~~~~0.0.1.0"
@@ -8,6 +7,7 @@ sudo Remove-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Print.Fax.Scan~~~~0.0.1.0"
 
 sudo Add-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
+
 # SSH 设置
 sudo Add-WindowsCapability -Online -Name "OpenSSH.Server~~~~0.0.1.0"
 sudo Start-Service sshd
