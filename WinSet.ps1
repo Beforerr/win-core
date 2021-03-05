@@ -1,12 +1,31 @@
+sudo Get-WindowsCapability -Online
+sudo Remove-WindowsCapability -Online -Name  "Microsoft.Windows.PowerShell.ISE~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name  "App.Support.QuickAssist~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name  "App.StepsRecorder~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Microsoft.Windows.MSPaint~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Microsoft.Windows.WordPad~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Browser.InternetExplorer~~~~0.0.11.0"
-sudo Remove-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name "Print.Fax.Scan~~~~0.0.1.0"
 
 sudo Add-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
+# sudo Remove-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
+
+
+sudo Get-WindowsOptionalFeature -Online
+sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+sudo Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-All -NoRestart
+
+#--- Enable developer mode on the system ---
+sudo Get-WindowsDeveloperLicense
+sudo Set-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\AppModelUnlock -Name AllowDevelopmentWithoutDevLicense -Value 1
+
+# 防火墙
+sudo netsh advfirewall set currentprofile state off
+sudo netsh advfirewall set domainprofile state off
+sudo netsh advfirewall set privateprofile state off
+sudo netsh advfirewall set publicprofile state off
+sudo netsh advfirewall set allprofiles state off
+
 
 # SSH 设置
 sudo Add-WindowsCapability -Online -Name "OpenSSH.Server~~~~0.0.1.0"

@@ -9,7 +9,7 @@ scoop config rm proxy
 
 # Necceassary
 scoop install git openssl hub gh
-scoop install psutils gow wixtoolset
+scoop install psutils
 
 sudo Add-MpPreference -ExclusionPath ~\scoop
 sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
@@ -34,13 +34,15 @@ scoop bucket add extras
 scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
 scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 
+scoop bucket rm scoop-apps
+
 scoop install scoop-completion
 
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
-sudo scoop install listary-beta
-scoop install peazip
+sudo scoop install listary-beta everything-lite
+scoop install peazip irfanview			
 
 scoop install typora sumatrapdf-dev foxit-reader
 scoop install calibre
@@ -125,13 +127,15 @@ mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-por
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
 sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
 scoop install JetBrainsMono-NF
-scoop install cascadia-code-pl
+sudo scoop install cascadia-code-pl -g
 
 scoop uninstall vim
 
 
 # Commandline 
 scoop install bat less --skip
+scoop install grep
+scoop install wget
 
 # Python
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
@@ -161,6 +165,8 @@ conda init powershell
 
 scoop install PyCharm-Professional-EAP-portable
 scoop hold PyCharm-Professional-EAP-portable
+scoop install CLion-EAP-portable
+scoop hold CLion-EAP-portable
 
 # Java
 scoop install openjdk
@@ -170,8 +176,12 @@ scoop hold maven
 scoop install eclipse-java
 scoop hold eclipse-java
 
+# sudo scoop install vcredist2019 -g
+mkdir C:\src && cd C:\src && git clone https://github.com/microsoft/vcpkg
+.\vcpkg\bootstrap-vcpkg.bat && .\vcpkg integrate powershell
+sudo .\vcpkg.exe integrate install
 # Other Languages
-scoop install ruby go nodejs
+scoop install ruby go nodejs-lts
 scoop install php
 scoop install perl
 scoop install julia
@@ -187,13 +197,16 @@ scoop uninstall julia
 
 
 # linux
-sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-scoop install cgywin
-sudo scoop install ArchWSL -g
-scoop install wsl-ubuntu2004
+sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+# sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+# sudo Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-All -NoRestart
+# scoop install cgywin
+# sudo scoop install ArchWSL -g 
+# scoop install wsl-ubuntu2004
 scoop install docker
 
-sudo scoop uninstall ArchWSL -g
+# sudo scoop uninstall ArchWSL -g
 
 
 
@@ -205,7 +218,6 @@ scoop install spacesniffer
 scoop install dodorz-BaiduNetdisk
 scoop install nextcloud synctrayzor
 scoop install anydesk 
-scoop install everything
 scoop install teamviewers
 scoop install WinDirStat
 scoop install DismPlusPlus-Portable

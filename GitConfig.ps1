@@ -1,5 +1,12 @@
 $userEmail = "zzj956959688@gmail.com"
-'$GIT_USER_NAME = "Zijin-Cheung"' >> $PROFILE
+
+# WSL
+export userEmail="zzj956959688@gmail.com"
+git config --global http.proxy 172.25.224.1:7890
+git config --global http.proxy 172.29.48.1:7890
+
+
+# '$GIT_USER_NAME = "Zijin-Cheung"' >> $PROFILE
 
 git config --global user.name "zijin"
 git config --global user.email $userEmail
@@ -15,7 +22,6 @@ git config --global alias.co checkout
 git config --global alias.last 'log -1 HEAD'
 
 ssh-keygen -t rsa -C $userEmail
-
 git clone git@github.com:Zijin-Zhang/win-core.git
 
 
@@ -26,3 +32,6 @@ git clone git@github.com:Zijin-Zhang/win-core.git
 # git branch -M main
 # git remote add origin git@github.com:Zijin-Zhang/win-core.git
 # git push -u origin main
+
+
+
