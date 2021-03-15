@@ -1,0 +1,2 @@
+gh repo clone RossWang/Aria2-Integration
+cd .\Aria2-Integration\Bin\ && sudo .\add_Aria2-uriScheme.bat

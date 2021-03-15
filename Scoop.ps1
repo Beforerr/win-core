@@ -69,7 +69,7 @@ sudo scoop uninstall powershell-preview
 # 浏览器
 # scoop install firefox-beta
 scoop install thunderbird-portable firefox-developer microsoft-edge-dev googlechrome-dev speedyfox
-scoop hold firefox-developer microsoft-edge-dev googlechrome-dev
+scoop hold firefox-developer microsoft-edge-dev googlechrome-dev thunderbird-portable
 scoop uninstall firefox-beta
 
 
@@ -94,6 +94,7 @@ sudo scoop install lavfilters -g
 sudo C:\ProgramData\scoop\apps\lavfilters\current\install_audio.bat
 sudo C:\ProgramData\scoop\apps\lavfilters\current\install_splitter.bat
 sudo C:\ProgramData\scoop\apps\lavfilters\current\install_video.bat
+scoop install xysubfilter
 # scoop install mediainfo-gui
 # scoop uninstall mediainfo-gui
 
@@ -211,11 +212,11 @@ scoop install docker
 
 
 # 工具
-scoop install dodorz-Eudic -s
+scoop install Eudic_dodorz -s
 scoop install winscp 
 scoop install GeekUninstaller-Portable
 scoop install spacesniffer
-scoop install dodorz-BaiduNetdisk
+scoop install draw.io
 scoop install nextcloud synctrayzor
 scoop install anydesk 
 scoop install teamviewers
