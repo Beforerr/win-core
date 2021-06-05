@@ -1,12 +1,14 @@
 $userEmail = "zzj956959688@gmail.com"
 
 # WSL
-export userEmail="zzj956959688@gmail.com"
-git config --global http.proxy 172.25.224.1:7890
-git config --global http.proxy 172.29.48.1:7890
+# export userEmail="zzj956959688@gmail.com"
+# git config --global http.proxy 172.25.224.1:7890
+# git config --global http.proxy 172.29.48.1:7890
 
 
 # '$GIT_USER_NAME = "Zijin-Cheung"' >> $PROFILE
+
+
 
 git config --global user.name "zijin"
 git config --global user.email $userEmail

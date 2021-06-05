@@ -1,0 +1,52 @@
+tasks:
+  #自动签到
+  sign_in:
+    auto_sign_in:
+      user-agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
+      max_workers: 1
+      get_messages: no #设为no跳过获取未读信息。默认no
+      get_details: yes #设为no跳过获取统计。默认yes      
+      aipocr:  #baidu ocr参数
+        app_id: '23862891'
+        api_key: 'ELCson7VvzgfxebKCOcagq49'
+        secret_key: 'G99FMY8jcPq0ZbIGgwj6KpkRG9B6Rlz4'
+      sites:
+      #以下为具体站点设置 
+      #https://github.com/lhllhx/flexget_qbittorrent_mod/tree/master/ptsites 下存在需要的站点 只需配置相应的 主域名: cookie
+        tjupt: "c_secure_uid=Mjg5Nzg%3D; c_secure_pass=7108de705984d22a73f521d9ab991cc1; c_secure_ssl=eWVhaA%3D%3D; c_secure_tracker_ssl=eWVhaA%3D%3D; c_secure_login=bm9wZQ%3D%3D"
+        pttime: "c_secure_uid=ODI4NA%3D%3D; c_secure_pass=3f9a5a35acf1761b0cc647f4a63a10ab; c_secure_ssl=eWVhaA%3D%3D; c_secure_tracker_ssl=eWVhaA%3D%3D; c_secure_login=bm9wZQ%3D%3D"
+        pterclub: "PHPSESSID=rcr0cv0uiokbgj2fop4luiv262; c_secure_uid=MTI4NDM%3D; c_secure_pass=d38b758b4bfbe33b9da6add9b78186fb; c_secure_ssl=eWVhaA%3D%3D; c_secure_tracker_ssl=eWVhaA%3D%3D; c_secure_login=bm9wZQ%3D%3D"
+        lemonhd: "c_secure_uid=Mjg5Nzg%3D; c_secure_pass=7108de705984d22a73f521d9ab991cc1; c_secure_ssl=eWVhaA%3D%3D; c_secure_tracker_ssl=eWVhaA%3D%3D; c_secure_login=bm9wZQ%3D%3D"
+      #部分cookie过期太快，而改用模拟登陆的站点，如以下站点 无此站点的请删除，请删除
+ 
+    accept_all: yes
+    seen:
+      fields:
+        - title
+    notify:
+      task:
+        always_send: true
+        message: |+
+          {%- if task.accepted -%}
+          {%- for group in task.accepted|groupby('task') -%}
+          FlexGet has just signed in {{ group.list|length }} sites for task {{ group.grouper }}:
+          {% for entry in group.list %}
+          {{ loop.index }}: {{ entry.title }} {{ entry.result }}
+          {%- if entry.messages|d('') %}
+          Messages: {{ entry.messages }}
+          {% endif %}
+          {%- endfor -%}
+          {%- endfor -%}
+          {%- endif -%}
+          {%- if task.failed %}
+          {% for group in task.failed|groupby('task') %}
+          The following sites have failed for task {{ group.grouper }}:
+          {% for entry in group.list %}
+          {{ loop.index }}: {{ entry.title }} Reason: {{ entry.reason|d('unknown') }}
+          {%- if entry.messages|d('') %}
+          Messages: {{ entry.messages }}
+          {% endif %}
+          {%- endfor -%}
+          {%- endfor -%}
+          {%- endif -%}
+        via: #推送渠道选择 选择你需要的推送渠道 将不需要的删掉

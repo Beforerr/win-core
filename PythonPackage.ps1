@@ -1,9 +1,32 @@
+<# # Conda 安装
+wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+rm Miniconda3-latest-Linux-x86_64.sh
+# If you'd prefer that conda's base environment not be activated on startup,
+   # set the auto_activate_base parameter to false:
+# conda config --set auto_activate_base false
+conda update --all -y
+
+bash -c "tee ~/.condarc > /dev/null <<EOT
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+EOT
+" #>
+
+
 pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 pip3 config set install.trusted-host mirrors.aliyun.com
-
-
-
-
 
 
 
@@ -43,4 +66,5 @@ conda clean -a -y
 
 
 
-
+# Visualization
+conda install seaborn -y

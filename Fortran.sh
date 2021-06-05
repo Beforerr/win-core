@@ -1,1 +1,1 @@
-sudo apt-get install gfortran -y
+sudo apt install gfortran -y

@@ -1,3 +1,5 @@
+$Env:DATA_HOME="D:\"
+
 sudo Get-WindowsCapability -Online
 sudo Remove-WindowsCapability -Online -Name  "Microsoft.Windows.PowerShell.ISE~~~~0.0.1.0"
 sudo Remove-WindowsCapability -Online -Name  "App.Support.QuickAssist~~~~0.0.1.0"
@@ -13,7 +15,10 @@ sudo Add-WindowsCapability -Online -Name "Media.MediaFeaturePack~~~~0.0.1.0"
 
 sudo Get-WindowsOptionalFeature -Online
 sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
-sudo Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-All -NoRestart
+sudo Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -NoRestart
+sudo Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient -NoRestart
+
+
 
 #--- Enable developer mode on the system ---
 sudo Get-WindowsDeveloperLicense
@@ -28,6 +33,19 @@ sudo netsh advfirewall set allprofiles state off
 
 
 # SSH 设置
+$user = "zijin"
+$user = "ustccs"
+# $targetmachine = "114.214.238.187"
+$targetmachine = "202.38.92.144"
+scp ~/.ssh/id_rsa.pub ${user}@${targetmachine}:
+ssh $user@$targetmachine
+"
+mkdir .ssh
+chmod 700 .ssh
+cat id_rsa.pub >> .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
+rm id_rsa.pub
+"
 sudo Add-WindowsCapability -Online -Name "OpenSSH.Server~~~~0.0.1.0"
 sudo Start-Service sshd
 sudo Set-Service -Name sshd -StartupType 'Automatic'
@@ -36,6 +54,7 @@ Get-NetFirewallRule -Name *ssh*
 
 # 关闭休眠
 sudo powercfg.exe /hibernate off
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 
 # 关闭密码
 netplwiz

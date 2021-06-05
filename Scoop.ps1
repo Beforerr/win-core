@@ -24,8 +24,10 @@ scoop cache rm *
 sudo scoop reset *
 $edge = "microsoft-edge-dev";
 $google = "googlechrome-dev";
+$firefox = "firefox-developer"
 scoop unhold $edge;scoop update $edge;scoop hold $edge;
 scoop unhold $google;scoop update $google;scoop hold $google;
+scoop unhold $firefox;scoop update $firefox;scoop hold $firefox;
 
 
 
@@ -42,9 +44,9 @@ scoop install scoop-completion
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
 sudo scoop install listary-beta everything-lite
-scoop install peazip irfanview			
+scoop install peazip irfanview
 
-scoop install typora sumatrapdf-dev foxit-reader
+scoop install typora sumatrapdf-dev #	foxit-reader
 scoop install calibre
 scoop install phraseexpress
 scoop install screenoff flux
@@ -56,8 +58,11 @@ Install-Module -Name PSReadLine -AllowPrerelease -Force
 # 2. 安装 posh-git 包，让你的 git 更好用
 Install-Module posh-git -Scope CurrentUser -AllowClobber
 # 3. 安装 oh-my-posh 包，让你的命令行更酷炫、优雅
+# scoop install oh-my-posh3
 Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
+# Uninstall-Module oh-my-posh
 Install-Module -Name Terminal-Icons -Repository PSGallery -Confirm
+Update-Module
 
 sudo scoop uninstall powershell-preview
 # sudo scoop install vcredist2019 -g
@@ -100,7 +105,7 @@ scoop install xysubfilter
 
 # 社交
 scoop install TIM
-scoop install wechat
+scoop install wechat_dodorz telegram -s
 # scoop install wechatwork
 # scoop install qtox-portable
 # scoop bucket add sushi https://github.com/kidonng/sushi
@@ -197,6 +202,8 @@ scoop uninstall php perl composer nodejs
 scoop uninstall julia
 
 
+scoop install dotnet-sdk-preview
+
 # linux
 sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -213,7 +220,7 @@ scoop install docker
 
 # 工具
 scoop install Eudic_dodorz -s
-scoop install winscp 
+scoop install winscp
 scoop install GeekUninstaller-Portable
 scoop install spacesniffer
 scoop install draw.io
