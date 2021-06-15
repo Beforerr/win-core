@@ -13,6 +13,8 @@
 # ''' | sudo tee /etc/apt/sources.list
 
 
+sudo apt install git curl
+
 # fish
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
@@ -21,7 +23,7 @@ echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 sudo adduser zijin
 
-
+# Fish
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install fish
@@ -40,12 +42,21 @@ sudo apt-get install speedtest
 sudo apt install 
 
 
+
 # Glances
 # sudo snap install glances
 pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 pip3 config set install.trusted-host mirrors.aliyun.com
-pip3 install --user glances
+pip3 install glances
 
+# Fuck
+pip3 install thefuck
+
+# Autojump
+# [wting/autojump: A cd command that learns - easily navigate directories from the command line](https://github.com/wting/autojump)
+git clone git://github.com/wting/autojump.git
+cd autojump && ./install.py
+echo " if test -f /home/zijin/.autojump/share/autojump/autojump.fish; . /home/zijin/.autojump/share/autojump/autojump.fish; end" > ~/.config/fish/config.fish
 
 
 

@@ -8,6 +8,11 @@ using namespace System.Management.Automation.Language
 
 Import-Module PSReadLine
 
+Set-PSReadLineOption -HistoryNoDuplicates
+Set-PSReadLineOption -MaximumHistoryCount 128
+Set-PSReadLineOption -ShowToolTips
+Set-PSReadLineOption -PredictionSource History
+
 Set-PSReadLineOption -EditMode Emacs
 
 # Searching for commands with up/down arrow is really handy.  The
@@ -17,6 +22,7 @@ Set-PSReadLineOption -EditMode Emacs
 # when you used up arrow, which can be useful if you forget the exact
 # string you started the search on.
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
@@ -99,7 +105,7 @@ Set-PSReadLineKeyHandler -Key Ctrl+v -Function Paste
 
 # CaptureScreen is good for blog posts or email showing a transaction
 # of what you did when asking for help or demonstrating a technique.
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d,Ctrl+c' -Function CaptureScreen
+# Set-PSReadLineKeyHandler -Chord 'Ctrl+d,Ctrl+c' -Function CaptureScreen
 
 # The built-in word movement uses character delimiters, but token based word
 # movement is also very useful - these are the bindings you'd use if you
