@@ -39,16 +39,18 @@ scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
 scoop bucket rm scoop-apps
 
 scoop install scoop-completion
-
+scoop install scoop-search
+	
 
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
 sudo scoop install listary-beta everything-lite
 scoop install peazip irfanview
 
-scoop install typora sumatrapdf-dev #	foxit-reader
+scoop install typora
+scoop install sumatrapdf-dev #	foxit-reader
 scoop install calibre
-scoop install phraseexpress
+scoop install phraseexpress -s
 scoop install screenoff flux
 
 
@@ -240,7 +242,8 @@ scoop uninstall anydesk
 
 
 scoop install zotero
-scoop install qiqqa
+scoop install quicklook
+
 
 
 

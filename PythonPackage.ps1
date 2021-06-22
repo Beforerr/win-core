@@ -30,8 +30,8 @@ pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 pip3 config set install.trusted-host mirrors.aliyun.com
 # pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
-
-sudo conda update -n base -c defaults conda -y
+conda update --all -y
+# sudo conda update -n base -c defaults conda -y
 
 # Environment
 conda install -c conda-forge cookiecutter -y
@@ -54,7 +54,6 @@ conda install sympy
 
 # Space Science
 pip install -U spacepy
-
 
 ## install sunpy
 # conda config --append channels conda-forge
