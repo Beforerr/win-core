@@ -1,4 +1,5 @@
-$userEmail = "zzj956959688@gmail.com"
+#!/bin/bash
+userEmail="zzj956959688@gmail.com"
 # ssh-keygen -t rsa -C $userEmail
 
 # WSL
