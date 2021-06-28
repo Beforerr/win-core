@@ -1,8 +1,10 @@
+Set-Alias -Name b -Value bat
 Set-Alias -Name c -Value code
 Set-Alias -Name n -Value notepad++
 Set-Alias -Name py -Value python
 Set-Alias -Name list -Value Get-ChildItem
 Set-Alias -Name eval -Value invoke-expression
+New-Alias which get-command
 
 # Should really be name=value like Unix version of export but not a big deal
 function open($file) {
@@ -48,7 +50,7 @@ Set-Alias -Name ss -Value Scoop-Status
 
 Function Scoop-Update-All {
 	Stop-Process -Name "quicker";sudo scoop update quicker;quicker;
-	scoop update *; sudo scoop update *;
+	scoop update *; sudo scoop update * -g;
 	scoop cache rm *; scoop cleanup *;
 	scoop status;
 }
@@ -58,7 +60,7 @@ Function Scoop-Install {scoop install $args[0]}
 Set-Alias -Name sin -Value Scoop-Install
 
 Function Scoop-Update {
-	scoop unhold $args[0];scoop update $args[0];scoop hold $args[0]
+	scoop unhold $args[0];scoop update $args[0] -s;scoop hold $args[0]
 }
 Set-Alias -Name sup -Value Scoop-Update
 

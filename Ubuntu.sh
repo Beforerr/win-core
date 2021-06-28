@@ -22,11 +22,6 @@ sudo apt-get install fish
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 sudo adduser zijin
-
-# Fish
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install fish
 # fish setting
 set -U fish_user_paths $HOME/.local/bin/ $fish_user_paths
 
@@ -35,22 +30,35 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # System debugging
+# [Byobu](https://www.byobu.org/)
 sudo apt install byobu tree dstat ncdu -y
 ## Speedtest
-curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
-sudo apt-get install speedtest
-sudo apt install 
+# [sivel/speedtest-cli: Command line interface for testing internet bandwidth using speedtest.net](https://github.com/sivel/speedtest-cli)
+pip install speedtest-cli
 
 
+
+# Conda
+## Install
+# [anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
+# [Installation — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+# - [Installing on Linux — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html)
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh && miniconda3/bin/conda init fish
+
+## Uninstall
+# rm -rf ~/miniconda 
+# rm -rf ~/.condarc ~/.conda ~/.continuum
+
+# pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
+# pip3 config set install.trusted-host mirrors.aliyun.com
 
 # Glances
-# sudo snap install glances
-pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
-pip3 config set install.trusted-host mirrors.aliyun.com
-pip3 install glances
+# [Glances - An Eye on your system](https://nicolargo.github.io/glances/)
+pip install glances
 
 # Fuck
-pip3 install thefuck
+pip install thefuck
 
 # Autojump
 # [wting/autojump: A cd command that learns - easily navigate directories from the command line](https://github.com/wting/autojump)

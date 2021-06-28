@@ -42,6 +42,7 @@ scoop install scoop-completion
 scoop install scoop-search
 	
 
+scoop install v2ray qv2ray
 scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
 scoop install quicker
 sudo scoop install listary-beta everything-lite
@@ -54,7 +55,8 @@ scoop install phraseexpress -s
 scoop install screenoff flux
 
 
-scoop install powershell-preview
+scoop install powershell
+scoop install windows-terminal
 # 1. 安装 PSReadline 包，该插件可以让命令行很好用，类似 zsh
 Install-Module -Name PSReadLine -AllowPrerelease -Force
 # 2. 安装 posh-git 包，让你的 git 更好用
@@ -66,7 +68,7 @@ Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
 Install-Module -Name Terminal-Icons -Repository PSGallery -Confirm
 Update-Module
 
-sudo scoop uninstall powershell-preview
+# scoop uninstall powershell
 # sudo scoop install vcredist2019 -g
 # sudo scoop uninstall vcredist2019 -g
 # sudo scoop install vcredist -g
@@ -213,10 +215,12 @@ sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /
 # sudo Enable-WindowsOptionalFeature -Online -FeatureName  Microsoft-Hyper-V-All -NoRestart
 # scoop install cgywin
 # sudo scoop install ArchWSL -g 
-# scoop install wsl-ubuntu2004
-scoop install docker
-
 # sudo scoop uninstall ArchWSL -g
+
+# scoop install docker
+# scoop install lazydocker dockercompletion
+# scoop uninstall docker
+# scoop uninstall lazydocker dockercompletion
 
 
 
@@ -227,7 +231,7 @@ scoop install GeekUninstaller-Portable
 scoop install spacesniffer
 scoop install draw.io
 scoop install nextcloud synctrayzor
-scoop install anydesk 
+scoop install anydesk
 scoop install teamviewers
 scoop install WinDirStat
 scoop install DismPlusPlus-Portable
