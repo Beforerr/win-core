@@ -47,6 +47,7 @@ pip install speedtest-cli
 # - [Installing on Linux — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh && miniconda3/bin/conda init fish
+
 ## Uninstall
 # rm -rf ~/miniconda 
 # rm -rf ~/.condarc ~/.conda ~/.continuum
