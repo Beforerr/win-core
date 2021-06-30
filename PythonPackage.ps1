@@ -26,8 +26,8 @@ EOT
 
 
 
-pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
-pip3 config set install.trusted-host mirrors.aliyun.com
+pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/
+pip config set install.trusted-host mirrors.aliyun.com
 # pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 conda update --all -y

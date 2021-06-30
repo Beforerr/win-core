@@ -24,8 +24,7 @@ sudo apt-get install fish
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 sudo adduser zijin
-# fish setting
-set -U fish_user_paths $HOME/.local/bin/ $fish_user_paths
+
 
 # Docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -46,8 +45,8 @@ pip install speedtest-cli
 # [Installation — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 # - [Installing on Linux — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh && miniconda3/bin/conda init fish
-
+bash Miniconda3-latest-Linux-x86_64.sh  && rm Miniconda3-latest-Linux-x86_64.sh
+miniconda3/bin/conda init fish
 ## Uninstall
 # rm -rf ~/miniconda 
 # rm -rf ~/.condarc ~/.conda ~/.continuum
@@ -70,6 +69,5 @@ echo " if test -f /home/zijin/.autojump/share/autojump/autojump.fish; . /home/zi
 
 
 
-
-
-
+# Snap
+set -U fish_user_paths /snap/bin $fish_user_paths

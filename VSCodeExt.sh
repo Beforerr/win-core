@@ -1,3 +1,4 @@
+# Desktop
 code --install-extension ms-vscode.cpptools
 code --install-extension dbaeumer.vscode-eslint 
 code --install-extension esbenp.prettier-vscode 
@@ -24,5 +25,8 @@ code --install-extension clarkyu.vscode-sql-beautify
 # Java
 code --install-extension vscjava.vscode-java-pack
 
-
+# Julia
 code --install-extension julialang.language-julia-insider
+
+# Remote
+code --install-extension tabnine.tabnine-vscode
