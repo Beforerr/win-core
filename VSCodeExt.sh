@@ -30,3 +30,4 @@ code --install-extension julialang.language-julia-insider
 
 # Remote
 code --install-extension tabnine.tabnine-vscode
+code --install-extension ms-azuretools.vscode-docker

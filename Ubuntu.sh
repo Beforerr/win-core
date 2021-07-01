@@ -23,8 +23,14 @@ sudo apt-get update
 sudo apt-get install fish
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
-sudo adduser zijin
+# [jorgebucaran/fisher: A plugin manager for Fish.](https://github.com/jorgebucaran/fisher)
+curl -sL https://cdn.jsdelivr.net/gh/jorgebucaran/fisher@main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
+
+# Bat
+# [sharkdp/bat: A cat(1) clone with wings.](https://github.com/sharkdp/bat)
+wget https://pd.zwc365.com/seturl/https://github.com/sharkdp/bat/releases/download/v0.18.1/bat_0.18.1_amd64.deb
+sudo dpkg -i bat_0.18.1_amd64.deb
 
 # Docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -39,17 +45,6 @@ pip install speedtest-cli
 
 
 
-# Conda
-## Install
-# [anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
-# [Installation — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-# - [Installing on Linux — conda 4.10.1.post42+729e8b2cc documentation](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html)
-wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh  && rm Miniconda3-latest-Linux-x86_64.sh
-miniconda3/bin/conda init fish
-## Uninstall
-# rm -rf ~/miniconda 
-# rm -rf ~/.condarc ~/.conda ~/.continuum
 
 # pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 # pip3 config set install.trusted-host mirrors.aliyun.com
