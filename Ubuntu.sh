@@ -22,8 +22,7 @@ sudo apt-get install fish
 echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 sudo adduser zijin
-# fish setting
-set -U fish_user_paths $HOME/.local/bin/ $fish_user_paths
+
 
 # Docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

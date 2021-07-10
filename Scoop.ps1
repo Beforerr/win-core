@@ -250,7 +250,7 @@ scoop install quicklook
 
 
 
-
+scoop install latex perl
 
 
 
@@ -269,19 +269,3 @@ scoop config aria2-split 16
 scoop config aria2-max-connection-per-server 16
 scoop config aria2-min-split-size 4M
 
-
-
-# PowerShell
-$MyAlias="
-Set-Alias -Name c -Value code
-Set-Alias -Name g -Value git
-Set-Alias -Name s -Value scoop
-Set-Alias -Name py -Value python
-Set-Alias -Name list -Value Get-ChildItem
-Function Git-Status {git status}
-Set-Alias -Name gs -Value Git-Status
-Function Scoop-Install {scoop install $args[0]}
-Set-Alias -Name sin -Value Scoop-Install
-Function Scoop-Update {scoop update $args[0]}
-Set-Alias -Name sup -Value Scoop-Update"
-$MyAlias | Out-File -Append $PROFILE

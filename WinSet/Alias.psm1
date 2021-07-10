@@ -44,6 +44,7 @@ Set-Alias -Name gs -Value Git-Status
 Set-Alias -Name s -Value scoop
 
 Function Scoop-Status{
+	scoop update;
 	scoop status;
 }
 Set-Alias -Name ss -Value Scoop-Status
