@@ -6,17 +6,8 @@ sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install fish
 chsh -s /usr/bin/fish
-<<<<<<< HEAD
-sudo adduser zijin
-
-
-# Docker
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-=======
 # [jorgebucaran/fisher: A plugin manager for Fish.](https://github.com/jorgebucaran/fisher)
 curl -sL https://cdn.jsdelivr.net/gh/jorgebucaran/fisher@main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
->>>>>>> 5eced45b19469026bec8f40267a1294970deea1d
 
 ## Speedtest
 # [sivel/speedtest-cli: Command line interface for testing internet bandwidth using speedtest.net](https://github.com/sivel/speedtest-cli)
