@@ -7,6 +7,8 @@ sudo apt-get update
 sudo apt-get install fish
 chsh -s /usr/bin/fish
 
+
+pip install thefuck
 # Autojump
 # [wting/autojump: A cd command that learns - easily navigate directories from the command line](https://github.com/wting/autojump)
 git clone git://github.com/wting/autojump.git
