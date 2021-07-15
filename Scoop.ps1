@@ -10,6 +10,7 @@ scoop config rm proxy
 # Necceassary
 scoop install git openssl hub gh
 scoop install psutils
+sssh-copy-id
 
 sudo Add-MpPreference -ExclusionPath ~\scoop
 sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
