@@ -9,3 +9,8 @@ winget install Microsoft.EdgeDev
 # winget uninstall Microsoft.VisualStudio.2019.Community
 winget install todoist
 winget install Adobe.AdobeAcrobatReaderDC
+winget install Microsoft.OpenJDK.16
+
+
+winget install Nutstore.Nutstore
+winget install Dropbox.Dropbox

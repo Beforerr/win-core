@@ -1,9 +1,13 @@
 code --install-extension ms-vscode-remote.remote-ssh
+
 code --install-extension vscode-icons-team.vscode-icons
 # code --install-extension pkief.material-icon-themev
 code --install-extension github.github-vscode-theme
-code --install-extension eamodio.gitlens
 # code --install-extension johnpapa.winteriscoming
+
+code --install-extension eamodio.gitlens
+
+code --install-extension formulahendry.code-runner
 code --install-extension ms-vscode.cpptools
 code --install-extension dbaeumer.vscode-eslint 
 code --install-extension esbenp.prettier-vscode

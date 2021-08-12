@@ -1,0 +1,30 @@
+|"Append Image Dimensions to Filename" \;*>::rename , '*-<prop #image.dimensions>'
++|"Append Modified Date to Filename" \;*>::rename , '*-<datem yyyymmdd>'
+|"Copy file size in bytes" *>::copytext <cursize>
++"Vscode"\>C:\Users\95695\scoop\apps\vscode-portable\current\Code.exe
++{:Image}>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\IrfanView.lnk
++{:Photo}>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\IrfanView.lnk
++"AIMP" {:Audio};\>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\AIMP.lnk
++"AIMP" m3u;cue>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\AIMP.lnk
++{:Video};gif;!qb>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\PotPlayer Mini.lnk
++{:Video}>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\PotPlayer.lnk
++{:Video}>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\VLC.lnk
++html;htm;svg>Firefox
++md>Typora
++"Obsidian" md;\>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\Obsidian.lnk
++sh;ps1;psm1;xys;>notepad++
++txt;hostfile*;Makefile*;cmake>notepad++
++ini;bib;yml;yaml;json;nfo;conf;npmrc;config*;*.git*>notepad++
++{:Text};f;tex;pro;jl;for;m>code
++{:Text};toml>notepad++
++csv;sql>code
++epub;mobi>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\Calibre E-book Viewer.lnk
++pdf;djvu;eps;ps;epub>Sumatrapdf
++pdf;djvu>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\Microsoft Edge Dev.lnk
++ppt;pptx>#
++pdf;ppt;pptx;pptm>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\福昕高级PDF编辑器\福昕高级PDF编辑器.lnk
++epub>#
++rar;zip;7z>::openwith """7z""  x -aos ""-o<curbase>\"" -bb0 -bse0 -bsp2 -pdefault -sccUTF-8 ""<curitem>"" -r -- ""*""";wait 200;tab("new", "<curitempath>\<curbase>\");#485;
++zip;rar>..\..\PortableApps\PeaZipPortable\PeaZipPortable.exe
++svg;eps;ps>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Scoop Apps\QuickLook.lnk
++.project>C:\Program Files\Harris\ENVI54\IDL86\bin\bin.x86_64\idlde.exe

@@ -1,19 +1,50 @@
 ﻿# Make sure PowerShell 5 (or later, include PowerShell Core) and .NET Framework 4.5 (or later) are installed. Then run:
 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 
+# Proxy
 scoop config proxy 127.0.0.1:7890
-scoop config proxy 192.168.124.7:7890
-scoop config proxy 127.0.0.1:10809
-scoop config rm proxy
+# scoop config rm proxy
 
+sudo Add-MpPreference -ExclusionPath $HOME\scoop
+sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
+
+# Aria2
+scoop install aria2
+# aria2 在 Scoop 中默认开启
+scoop config aria2-enabled true
+# scoop config aria2-enabled false
+scoop config aria2-retry-wait 4
+scoop config aria2-split 16
+scoop config aria2-max-connection-per-server 16
+scoop config aria2-min-split-size 4M
+
+
+# Shovel https://github.com/Ash258/Scoop-Core
+scoop install 7zip git
+scoop config SCOOP_REPO 'https://github.com/Ash258/Scoop-Core'
+scoop update
+scoop status
+scoop checkup
+
+# Bucket
+scoop bucket known
+scoop bucket add extras
+scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
+scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
+# scoop bucket rm scoop-apps
+
+# Winget
+scoop install winget
 
 # Necceassary
-scoop install git openssl hub gh
+scoop install openssl wget
+scoop install hub gh
 scoop install psutils
-sssh-copy-id
+scoop install rclone
 
-sudo Add-MpPreference -ExclusionPath ~\scoop
-sudo Add-MpPreference -ExclusionPath 'C:\ProgramData\scoop'
+# Scoop
+scoop install scoop-completion
+scoop install scoop-search
 
 
 # 下面是日常更新软件命令
@@ -31,26 +62,17 @@ scoop unhold $google;scoop update $google;scoop hold $google;
 scoop unhold $firefox;scoop update $firefox;scoop hold $firefox;
 
 
-
-scoop bucket known
-scoop bucket add extras
-scoop bucket add scoop-apps https://github.com/kkzzhizhou/scoop-apps
-scoop bucket add raresoft https://github.com/L-Trump/scoop-raresoft
-
-scoop bucket rm scoop-apps
-
-scoop install scoop-completion
-scoop install scoop-search
+	
 	
 
 scoop install v2ray qv2ray
-scoop install clash-for-windows-portable;scoop hold clash-for-windows-portable
+scoop install clash-for-windows;scoop hold clash-for-windows
 scoop install quicker
 sudo scoop install listary-beta everything-lite
 scoop install peazip irfanview
 
-scoop install typora
-scoop install sumatrapdf-dev #	foxit-reader
+scoop install siyuan obsidian typora
+scoop install sumatrapdf
 scoop install calibre
 scoop install phraseexpress -s
 scoop install screenoff flux
@@ -84,8 +106,8 @@ scoop uninstall firefox-beta
 
 
 # 娱乐
-scoop install aimp eartrumpet
-scoop install neteasemusic listen1desktop
+scoop install eartrumpet
+scoop install aimp neteasemusic listen1desktop
 # scoop install spotify 
 # scoop install foobar2000-portable
 # scoop install obs-studio
@@ -97,7 +119,7 @@ scoop hold aimp
 
 # 视频
 scoop install ProjectEye
-scoop install vlc-portapps potplayer 
+scoop install potplayer 
 scoop install madvr 
 sudo ~\scoop\apps\madvr\current\install.bat
 sudo scoop install lavfilters -g
@@ -132,21 +154,17 @@ scoop install qbittorrent-portable
 # 编程环境
 scoop install zeal
 scoop install WindowsTerminal-preview
-scoop install vim vscode-portable notepadplusplus
+scoop install vscode-portable notepadplusplus
 # Make vscode portable
 mv $env:USERPROFILE\.vscode\extensions $env:USERPROFILE\scoop\persist\vscode-portable\data\extensions
 mv $env:APPDATA\Code  $env:USERPROFILE\scoop\persist\vscode-portable\data\user-data
-sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
+# sudo $env:USERPROFILE\scoop\apps\vscode-portable\current\vscode-install-context.reg
 scoop install JetBrainsMono-NF
 sudo scoop install cascadia-code-pl -g
 
-scoop uninstall vim
-
 
 # Commandline 
-scoop install bat less --skip
-scoop install grep
-scoop install wget
+scoop install bat # Incompatible with gow
 
 # Python
 # $path = [Environment]::GetEnvironmentVariable('Path', 'User')
@@ -207,7 +225,7 @@ scoop uninstall php perl composer nodejs
 scoop uninstall julia
 
 
-scoop install dotnet-sdk-preview
+
 
 # linux
 sudo dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -224,7 +242,7 @@ sudo dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /
 # scoop uninstall lazydocker dockercompletion
 
 
-
+scoop install darktable digikam
 # 工具
 scoop install Eudic_dodorz -s
 scoop install winscp
@@ -260,13 +278,5 @@ scoop install latex perl
 # scoop install steam
 # scoop uninstall steam
 
-scoop install aria2
-# aria2 在 Scoop 中默认开启
-scoop config aria2-enabled true
-scoop config aria2-enabled false
-# 关于以下参数的作用，详见aria2的相关资料
-scoop config aria2-retry-wait 4
-scoop config aria2-split 16
-scoop config aria2-max-connection-per-server 16
-scoop config aria2-min-split-size 4M
+
 

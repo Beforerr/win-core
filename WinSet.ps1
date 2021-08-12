@@ -64,3 +64,6 @@ powershell -command "&{$p='HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explor
 
 # disable Windows Defender
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+
+# disable "windows search"
+sc stop "wsearch" && sc config "wsearch" start=disabled
